@@ -1,0 +1,8 @@
+body {
+  text-align: center;
+}
+input {
+  font: 12px arial;
+  cursor: pointer;
+  padding: 0 10px;
+}

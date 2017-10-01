@@ -1,0 +1,14 @@
+body {
+  font: 12px/1.5 tahoma;
+}
+#outer {
+  width: 500px;
+  margin: 0 auto;
+}
+#outer div {
+  border: 2px solid #ccc;
+  padding: 10px;
+  margin-bottom: 10px;
+  text-indent: 2em;
+  cursor: pointer;
+}

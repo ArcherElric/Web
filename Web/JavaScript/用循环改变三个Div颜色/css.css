@@ -1,0 +1,20 @@
+#outer {
+  width: 330px;
+  height: 100px;
+  margin: 10px auto;
+}
+#outer div {
+  float: left;
+  width: 100px;
+  height: 100px;
+  margin: 0 5px;
+  background: black;
+}
+
+/*div {
+  float: left;
+  width: 100px;
+  height: 100px;
+  margin: 0 5px;
+  background: black;
+}*/

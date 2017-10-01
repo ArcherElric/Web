@@ -1,0 +1,14 @@
+/*网页的答案是通过取色板修改这里的设置
+而我不知道怎么弄取色板
+所以我用了一个我自己想出来的办法去实现这个换肤的功能*/
+
+body {
+  background: #a3c5a8;
+}
+#nav {
+  background: green;
+  border-color: #fff;
+}
+#nav li {
+  border-color: #fff
+}

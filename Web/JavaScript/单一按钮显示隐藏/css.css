@@ -1,0 +1,49 @@
+body, div, ul, li, h2 {
+  margin: 0;
+  padding: 0;
+}
+body {
+  font: 12px/1.5 tahoma;
+}
+ul {
+  list-style-type: none;
+}
+#outer {
+  width: 200px;
+  border: 1px solid #aaa;
+  margin: 10px auto;
+}
+#outer h2 {
+  cursor: pointer;
+  color: #57646e;
+  font-size: 14px;
+  font-weight: 400px;
+  border: 1px solid;
+  height: 30px;
+  line-height: 30px;
+  padding-left: 10px;
+  background: #ced3d7;
+  border-color: #fff #e9edf2;
+}
+#outer h2.open {
+  background-position: 180px -12px;
+}
+#outer ul {
+  border-top: 1px solid #dee3e6;
+}
+#outer li {
+  height: 25px;
+  line-height: 25px;
+  vertical-align: top;
+}
+#outer a {
+  display: block;
+  color: #6b7980;
+  background: #e9edf2;
+  text-decoration: none;
+  padding: 0 10px;
+}
+#outer a:hover {
+  background: #fff;
+  text-decoration: underline;
+}

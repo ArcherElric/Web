@@ -1,0 +1,19 @@
+body {
+  color: #999;
+  font: 12px/1.5 tahoma;
+}
+#outer {
+  width: 500px;
+  margin: 0 auto;
+}
+#outer input {
+  padding: 3px;
+  border: 1px solid #ccc;
+  font-family: inherit;
+  width: 220px;
+  margin-right: 10px;
+}
+.sum {
+  font-size: 30px;
+  color: red;
+}

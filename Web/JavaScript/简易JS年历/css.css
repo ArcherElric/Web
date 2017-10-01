@@ -1,0 +1,52 @@
+body, ul, li, h2, p {
+  margin: 0;
+  padding: 0;
+}
+body {
+  font: 12px/1.5 tahoma;
+}
+#calendar {
+  width: 248px;
+  overflow: hidden;
+  zoom: 1;
+  background: #eaeaea;
+  margin: 10px auto;;
+  padding: 0 0 10px 10px;
+}
+#calendar ul {
+  overflow: hidden;
+  zoom: 1;
+}
+#calendar li {
+  color: #fff;
+  float: left;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  font-size: 14px;
+  text-align: center;
+  background: #424242;
+  line-height: 1.3;
+  list-style-type: none;
+  border: 1px solid #424242;
+  margin: 10px 10px 0 0;
+  padding: 5px;
+}
+#calendar li.current {
+  color: #f69;
+  background: #fff;
+}
+#calendar li strong {
+  display: block;
+  font-size: 18px;
+}
+#msg {
+  color: #666;
+  background: #f1f1f1;
+  border: 1px solid #fff;
+  margin: 10px 10px 0 0;
+  padding: 5px;
+}
+#msg h2 {
+  font-size: 14px;
+}
