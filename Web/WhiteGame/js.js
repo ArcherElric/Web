@@ -111,5 +111,6 @@ function fail() {
 }
 
 $("start").onclick = function () {
+    window.clearInterval(clock)
     init()
 }
