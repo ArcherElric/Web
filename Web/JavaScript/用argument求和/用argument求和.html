@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>agruments应用——求出函数参数的总和</title>
+    <link rel="stylesheet" href="css.css">
+    <script src="js.js"></script>
+  </head>
+  <body>
+    <pre>
+      &lt;script type="text/javascript"&gt;
+          var i = iResult = 0
+          function sum() {
+              for (var i=0; i < arguments.lenght; i++) {
+                  iResult += arguments[i]
+            }
+            return iResult
+          }
+          <span>//应用</span>
+          alert(sum(1,2,3,4,5,6,7,8,9,10)) <span>//输出55</span>
+       &lt;/script&gt;
+    </pre>
+  </body>
+</html>

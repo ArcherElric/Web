@@ -1,0 +1,9 @@
+div {
+  color: green;
+  padding: 10px 15px;
+  margin: 12px 0;
+  background: #f0f0f0;
+  border: 1px dotted #333;
+  font: 12px/1.5 courier New;
+  word-wrap: break-word;
+}

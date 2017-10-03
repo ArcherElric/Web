@@ -1,0 +1,10 @@
+pre {
+  color: green;
+  padding: 10px 15px;
+  background: #f0f0f0;
+  border: 1px dotted #333;
+  font: 12px/1.5 courier New;
+}
+span {
+  color: #999;
+}

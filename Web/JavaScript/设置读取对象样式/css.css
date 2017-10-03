@@ -1,0 +1,16 @@
+div {
+  width: 400px;
+  height: 200px;
+  background: #fef4eb;
+  border: 1px solid #f60;
+  margin: o auto;
+}
+input {
+  border: 0;
+  color: #fff;
+  cursor: pointer;
+  font-weight: 700;
+  background: #f60;
+  margin: 10px 0 0 10px;
+  padding: 2px 4px;
+}
