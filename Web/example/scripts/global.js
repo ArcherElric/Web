@@ -317,7 +317,10 @@ function prepareForms() {
         var thisform = document.forms[i]
         resetFields(thisform)
         thisform.onsubmit = function() {
-            return validateForm(this)
+            if (!validateForm(this)) return false
+            var article = document.getElementsByTagName("article")[0]
+            if (submitFormWithAjax(this, article)) return false
+            return true
         }
     }
 }
@@ -378,7 +381,7 @@ function displayAjaxLoading(element) {
     element.appendChild(content)
 }
 
-function submintFormWithAjax(whichform, thetarget) {
+function submitFormWithAjax(whichform, thetarget) {
     var request = getHTTPObject()
     if (!request) {
         return false
@@ -386,13 +389,14 @@ function submintFormWithAjax(whichform, thetarget) {
     displayAjaxLoading(thetarget)
 
     var dataParts = []
-    for (var i = 0; i < whichform.element.length; i++) {
-        var element = whichform.element[i]
+    var element
+    for (var i = 0; i < whichform.elements.length; i++) {
+        element = whichform.elements[i]
         dataParts[i] = element.name + "=" + encodeURIComponent(element.value)
     }
     var data = dataParts.join("&")
 
-    request.open("POST", whichform.action, true)
+    request.open("POST", whichform.getAttribute("action"), true)
     request.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
     request.onreadystatechange = function() {
         if (request.readyState == 4) {
@@ -408,7 +412,7 @@ function submintFormWithAjax(whichform, thetarget) {
             }
         }
     }
-    request.send(date)
+    request.send(data)
     return true
 }
 
