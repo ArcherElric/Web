@@ -83,3 +83,10 @@ if (typeof object.beget !== "function") {
         return new F()
     }
 }
+//扩展类型的功能
+Function.prototype.method = function(name, func) {
+    if (!this.prototype[name]) {
+        this.prototype[name] = func
+    }
+    return this
+}
