@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>比较两数的大小</title>
+        <style media="screen">
+            body {
+                padding: 0;
+                margin: 0 auto;
+                font: 12px/1.5 arial;
+                text-align: center;
+            }
+
+        </style>
+    </head>
+    <body>
+        <div id="outer">
+            <input type="text" name="" value="">
+            <span>VS</span>
+            <input type="text" name="" value="">
+            <button type="button" name="button">最大的数是>></button>
+            <span id="output">?</span>
+        </div>
+        <script type="text/javascript">
+            var main = function() {
+                //初始化
+                var init = {
+                     span : document.getElementById("output"),
+                     button : document.getElementsByTagName("button")[0],
+                     inputs : document.getElementsByTagName("input"),
+                }
+
+                //获取最大值
+                var maxs = {
+                    //获取 input的值
+                    getInput : function (inputs) {
+                        var input = []
+                        for (var i = 0; i < inputs.length; i++) {
+                            input.push(Number(inputs[i].value))
+                        }
+                        return maxs.max(input)
+                    },
+                    //比较大小
+                    max : function (array) {
+                            var max = array.reduce(function(a, b) {
+                                return Math.max(a, b)
+                            })
+                            return max
+                    },
+
+                    output : function() {
+                        init.button.onclick = function() {
+                            init.span.innerHTML = maxs.getInput(init.inputs)
+                        }
+                    },
+
+                }
+
+                //调用output输出最大值
+                maxs.output()
+            }
+
+            main()
+        </script>
+    </body>
+</html>
