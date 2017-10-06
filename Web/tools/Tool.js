@@ -1,4 +1,20 @@
 
+//创建一个使用原对象为原型的新对象
+if (typeof object.beget !== "function") {
+    object.create = function (o) {
+        var F = function() {}
+        F.prototype = o
+        return new F()
+    }
+}
+//扩展类型的功能
+Function.prototype.method = function(name, func) {
+    if (!this.prototype[name]) {
+        this.prototype[name] = func
+    }
+    return this
+}
+
 //事件工具
 var eventTools = {
     //页面加载完成后
@@ -75,44 +91,33 @@ var eventTools = {
     },
 }
 
-//创建一个使用原对象为原型的新对象
-if (typeof object.beget !== "function") {
-    object.create = function (o) {
-        var F = function() {}
-        F.prototype = o
-        return new F()
-    }
-}
-//扩展类型的功能
-Function.prototype.method = function(name, func) {
-    if (!this.prototype[name]) {
-        this.prototype[name] = func
-    }
-    return this
-}
 
-//判断对象是否为数组
-var is_array = function(value) {
-    return Object.prototype.toString.apply(value) === '[object Array]'
-}
 
-//创建dim个元素值为init的一维数组
-Array.dim = function(dimension, initial) {
-    var a = [], i
-    for ( i = 0; i < dimension; i++) {
-        a[i] = initial
-    }
-    return a
-}
-//创建二维数组
-Array.matrix = function(m, n, initial) {
-    var a, i, j, mat = []
-    for (i = 0; i < m; i++) {
-        a = []
-        for (j = 0; j < n; j++) {
-            a[j] = initial
+var arrayTools = {
+    
+    //判断对象是否为数组
+    is_array : function(value) {
+        return Object.prototype.toString.apply(value) === '[object Array]'
+    },
+
+    //创建dim个元素值为init的一维数组
+    dim : function(dimension, initial) {
+        var a = [], i
+        for ( i = 0; i < dimension; i++) {
+            a[i] = initial
         }
-        mat[i] = a
-    }
-    return mat
+        return a
+    },
+    //创建二维数组
+    matrix : function(m, n, initial) {
+        var a, i, j, mat = []
+        for (i = 0; i < m; i++) {
+            a = []
+            for (j = 0; j < n; j++) {
+                a[j] = initial
+            }
+            mat[i] = a
+        }
+        return mat
+    },
 }
