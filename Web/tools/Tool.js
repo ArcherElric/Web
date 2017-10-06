@@ -90,3 +90,29 @@ Function.prototype.method = function(name, func) {
     }
     return this
 }
+
+//判断对象是否为数组
+var is_array = function(value) {
+    return Object.prototype.toString.apply(value) === '[object Array]'
+}
+
+//创建dim个元素值为init的一维数组
+Array.dim = function(dimension, initial) {
+    var a = [], i
+    for ( i = 0; i < dimension; i++) {
+        a[i] = initial
+    }
+    return a
+}
+//创建二维数组
+Array.matrix = function(m, n, initial) {
+    var a, i, j, mat = []
+    for (i = 0; i < m; i++) {
+        a = []
+        for (j = 0; j < n; j++) {
+            a[j] = initial
+        }
+        mat[i] = a
+    }
+    return mat
+}
