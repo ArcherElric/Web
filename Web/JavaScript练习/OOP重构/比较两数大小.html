@@ -50,6 +50,12 @@
 
                     output : function() {
                         init.button.onclick = function() {
+                            for (var i = 0; i < init.inputs.length; i++) {
+                                if (init.inputs[i].value === "") {
+                                    alert("请输入数字!")
+                                    return false
+                                }
+                            }
                             init.span.innerHTML = maxs.getInput(init.inputs)
                         }
                     },
