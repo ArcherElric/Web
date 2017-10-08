@@ -7,6 +7,19 @@ if (typeof object.beget !== "function") {
         return new F()
     }
 }
+
+function inherit(p) {
+    if (p == null) throw TypeError()
+    if (Object.create) {
+        return Object.create(p)
+    }
+    var t = typeof p
+    if (t !== "object" && t !== "function") throw TypeError()
+    function f() {}
+    f.prototype = p
+    return new f()
+}
+
 //扩展类型的功能
 Function.prototype.method = function(name, func) {
     if (!this.prototype[name]) {
@@ -94,7 +107,7 @@ var eventTools = {
 
 
 var arrayTools = {
-    
+
     //判断对象是否为数组
     is_array : function(value) {
         return Object.prototype.toString.apply(value) === '[object Array]'
