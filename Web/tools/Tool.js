@@ -94,6 +94,13 @@ function keys(o) {
     return result
 }
 
+//返回任意对象的类
+function classof(o) {
+    if (o === null) return "Null"
+    if (o === undefined) return "Undefined"
+    return Object.prototype.toString.call(o).slice(8, -1)
+}
+
 //扩展类型的功能
 Function.prototype.method = function(name, func) {
     if (!this.prototype[name]) {
