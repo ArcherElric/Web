@@ -186,13 +186,13 @@ var eventTools = {
 }
 
 
+//判断对象是否为数组
+var isArray = Function.isArray || function(o) {
+    return typeof o === "object" &&
+    Object.prototype.toString.call(o) === '[object Array]'
+}
 
 var arrayTools = {
-
-    //判断对象是否为数组
-    is_array : function(value) {
-        return Object.prototype.toString.apply(value) === '[object Array]'
-    },
 
     //创建dim个元素值为init的一维数组
     dim : function(dimension, initial) {
