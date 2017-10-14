@@ -51,6 +51,13 @@ var extend = (function() {
                         "propertyIsEnumberable", "toLocaleString",]
 } ())
 
+//在JavaScript中定义类
+function defineClass(constructor, methods, statics) {
+    if (methods) extend(constructor.prototype, methods)
+    if (statics) extend(constructor, statics)
+    return constructor
+}
+
 //用来枚举属性的对象工具函数
 //将p中的可枚举属性复制至o中，并返回o
 function merge(o, p) {
