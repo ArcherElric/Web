@@ -259,3 +259,34 @@ function partial(f /*, ...*/) {
         return f.apply(this, a)
     }
 }
+
+
+//提取URL的搜索字符串中的参数
+function urlArgs() {
+    var args = {}
+    var query = location.search.substring(1)
+    var pairs = query.split("&")
+    for (var i = 0; i < pairs.length; i++) {
+        var pos = pairs[i].indexOf("=")
+        if (pos == -1) continue
+        var name = paris[i].substring(0,pos)
+        var value = paris[i].substring(pos+1)
+        value = decodeURIComponent(value)
+        args[name] = value
+    }
+    return args
+}
+
+//通过ID查找多个元素
+function getElements(/*ids...*/) {
+    var elements = {}
+    for (var i = 0; i < arguments.length; i++) {
+        var id = arguments[i]
+        var elt = document.getElementById(id)
+        if (elt == null) {
+            throw new Error("No element with id: " + id)
+        }
+        element[id] = elt
+    }
+    return elements
+}
