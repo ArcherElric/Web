@@ -290,3 +290,14 @@ function getElements(/*ids...*/) {
     }
     return elements
 }
+
+//解决attachEvent()的this值是全局对象的问题,但是注册的不能删除
+function attachEvent(target, type, handler) {
+    if (target.addEventListener){
+        target.addEventListener(type,handler,false)
+    } else {
+        target.attachEvent("on" + type, function(event) {
+            return handler.call(target, event)
+        })
+    }
+}
