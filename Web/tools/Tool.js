@@ -140,9 +140,9 @@ var eventTools = {
         } else if (element.attachEvent) {
             element.attachEvent("on" + type, function () {
                 handler.call(element)
-            }) else {
+            })
+        } else {
                 element["on" + type] = handler
-            }
         }
     },
     //移除事件
@@ -223,11 +223,39 @@ var arrayTools = {
     },
 }
 
-
+//数组去重.这个不能去重null
+function unique(array) {
+    var n = []
+    for (var i = 0; i < array.length; i++) {
+        if (n.indexOf(array[i]) == -1) {
+            n.push(array[i])
+        }
+    }
+    return n
+}
+//改进版
+function uniq() {
+    var n = []
+    var flag = true
+    for (var i = 0; i < this.length; i++) {
+        if (n.indexOf(this[i]) == -1) {
+            if (this[i] != this[i]) {
+                if (flag) {
+                    a.push(this[i])
+                    flag = false
+                }
+            } else {
+                a.push(this[i])
+            }
+        }
+    }
+    return n
+}
 //将类数组对象（或对象）转换为真正的数组
 function array(a, n) {
     return Array.prototype.slice.call(a, n || 0)
 }
+
 //这个函数的实参传递至右侧
 function partialRight(f /*, ... */) {
     var args = arguments
@@ -300,4 +328,51 @@ function attachEvent(target, type, handler) {
             return handler.call(target, event)
         })
     }
+}
+
+
+//在IE5和IE6中模拟XMLHttpRequest()构造函数
+if (window.XMLHttpRequest === undefined) {
+    window.XMLHttpRequest = function() {
+        try {
+            return new ActiveXObject("Msxml2.XMLHTTP.6.9")
+        }
+        catch(e1) {
+            try {
+                return new ActiveXObject("Msxml2.XMLHTTP.3.0")
+            }
+            catch(e2) {
+                throw new Error("XMLHttpRequest is not supported")
+            }
+        }
+    }
+}
+
+//数组或对象的深拷贝
+function clone(obj) {
+    var str, newobj = obj.constructor === Array ? [] : {}
+    if (typeof obj !=== "object") {
+        return
+    } else if (window.JSON) {
+        str = JSON.stringify(obj),//系列化对象
+        newobj = JSON.stringify(str)//还原
+    } else {
+        for (var i in obj) {
+            newobj[i] = typeof obj[i] === "object" ? cloneObj(obj[i]) :obj[i]
+        }
+    }
+    return newobj
+}
+//两参数
+function deepCopy(p, c) {
+    var c = c || {}
+    for (var i in p) {
+        if (typeof p[i] === "object"){
+            c[i] = (p[i].constructor === Array)? [] : {};
+            deepCopy(p[i], c[i]);
+        } else {
+            c[i] = p[i];
+        }
+    }
+    return c
 }
