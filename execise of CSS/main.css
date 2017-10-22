@@ -1,0 +1,61 @@
+
+/*Bootstrap导航 start*/
+.container1 {
+    height: 100px;
+    border: 1px solid #000;
+    display: flex;
+    flex-flow: column;
+}
+.ul1 {
+    background-color: #fff;
+    border: 2px solid #eee;
+    border-bottom: none;
+    height: 50%;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-end;
+    flex: 0 1 auto;
+}
+.ul1 li {
+    margin: 0;
+
+    align-self: center;
+}
+.ul1 li:first-child {
+    background-color: #563D7C;
+    margin: 20px auto 20px 2%;
+    border-radius: .25em;
+}
+.ul1 li:last-child {
+    margin-right: 5%;
+}
+.ul1 li:first-child a {
+    font-family: fantasy;
+    font-size: 20px;
+    color: #fff;
+    text-decoration: none;
+}
+.ul1 a {
+    width: 100%;
+    text-decoration: none;
+    padding: 0 10px 0 10px;
+}
+.ul1 a:hover {
+    color: #fff;
+    border-radius: .25em;
+    background-color: #563D7C;
+}
+.end1 {
+    text-align: center;
+    color: #fff;
+    font-family: sans-serif;
+    border: 2px solid #eee;
+    border-top: none;
+    flex: 0 1 auto;
+    background-color: #8CACEA;
+    height: 50%;
+}
+/*Bootstrap导航 end*/
