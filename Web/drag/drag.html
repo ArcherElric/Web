@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            .inner {
+                position: absolute;
+                width: 100px;
+                height: 100px;
+                background: red;
+            }
+        </style>
+        <script>
+            var log = console.log.bind(console)
+
+            window.onload = function() {
+                drag()
+            }
+
+            var drag = function() {
+                var inner = document.getElementsByClassName("inner")[0]
+                inner.onmousedown = fnDown
+            }
+
+            var fnDown = function(event) {
+                var inner = document.getElementsByClassName("inner")[0]
+                var event = event || window.event
+                var disX = event.clientX - inner.offsetLeft
+                var disY = event.clientY - inner.offsetTop
+
+                //move
+                document.onmousemove = function(event) {
+                    var event = event || widow.event
+                    fnMove(event, disX, disY)
+                }
+
+                //unbind event
+                document.onmouseup = function(event) {
+                    document.onmousemove = null
+                    document.onmouseup = null
+                }
+            }
+
+            var fnMove = function(event, posX, posY) {
+                var inner = document.getElementsByClassName("inner")[0]
+                var l = event.clientX - posX
+                var t = event.clientY - posY
+                inner.style.left = l + "px"
+                inner.style.top = t + "px"
+            }
+        </script>
+    </head>
+    <body>
+        <div class="outer">
+            <div class="inner">
+            </div>
+        </div>
+    </body>
+</html>
