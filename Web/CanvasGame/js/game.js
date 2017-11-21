@@ -10,7 +10,7 @@ var bgImage = new Image()
 bgImage.onload = function () {
     bgReady = true
 }
-bgImage.src = "images/Background.png"
+bgImage.src = "images/background.png"
 
 //hero image
 var heroReady = false
