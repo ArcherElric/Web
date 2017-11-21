@@ -1,8 +1,9 @@
 # web
 JavaScript文件夹：前端小项目
 
-DOM文件夹：使用DOM编程实现摇滚乐队官网的仿制
+[DOM](https://archerelric.github.io/web/Web/DOM/template.html)
 
-CanvasGame:canvas 小游戏
+[CanvasGame](https://archerelric.github.io/web/Web/CanvasGame/game.html)
 
-WhiteGame ： 别踩白块网页版
+[WhiteGame](https://archerelric.github.io/web/Web/WhiteGame/game.html)
+
