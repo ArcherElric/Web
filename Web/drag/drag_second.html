@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Div子项在左右容器中移动</title>
+    <style>
+        div {
+            width: 200px;
+            height: 40px;
+            border: 1px solid #000;
+        }
+
+        #outer1,
+        #outer2 {
+            width: 200px;
+            height: 400px;
+            border: 1px solid #000;
+            float: left;
+            margin: 10px;
+        }
+
+        .inner1,
+        .inner2 {
+            background-color: red;
+        }
+        p {
+            clear: both;
+        }
+    </style>
+    <script>
+        var log = console.log.bind(console)
+        window.onload = function () {
+            drag()
+        }
+        function drag() {
+            var inners1 = document.getElementsByClassName("inner1")
+            var inners2 = document.getElementsByClassName("inner2")
+            //左列
+            for (var i = 0; i < inners1.length; i++) {
+                inners1[i].onmousedown = fnDown
+            }
+            //右列
+            for (var i = 0; i < inners2.length; i++) {
+                inners2[i].onmousedown = fnDown
+            }
+        }
+        function fnDown(event) {
+            event = event || window.event
+            this.style.position = "absolute"
+            var disX = event.clientX - this.offsetLeft
+            var disY = event.clientY - this.offsetTop
+            var that = this
+
+            //move
+            document.onmousemove = function (event) {
+                event = event || window.event
+                var l = event.clientX - disX
+                var t = event.clientY - disY
+                that.style.left = l + "px"
+                that.style.top = t + "px"
+            }
+
+            //unbind
+            document.onmouseup = function () {
+                var div1 = document.getElementById("outer1")
+                var div2 = document.getElementById("outer2")
+                if (that.className == "inner1") {
+                    that.className = "inner2"
+                    div2.appendChild(that)
+                } else {
+                    that.className = "inner1"
+                    div1.appendChild(that)
+                }
+                that.style.position = ""
+                document.onmousemove = null
+                document.onmouseup = null
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div id="outer1">
+        <div class="inner1">1</div>
+        <div class="inner1">2</div>
+        <div class="inner1">3</div>
+        <div class="inner1">4</div>
+    </div>
+    <div id="outer2">
+        <div class="inner2">5</div>
+        <div class="inner2">6</div>
+        <div class="inner2">7</div>
+        <div class="inner2">8</div>
+    </div>
+    <p>
+        容器子项可以通过单、双击实现向另一容器的转移，也可以通过拖拽转移。<br>
+        拖拽转移，其实只是增加了一个mousemove的事件，当触发mouseup事件时，就是一个单击事件的过程。<br>
+        有一个bug，就是有时候按下鼠标时，子项的坐标立即发生了变化。
+    </p>
+</body>
+
+</html>
